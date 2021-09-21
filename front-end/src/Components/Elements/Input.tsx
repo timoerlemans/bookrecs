@@ -9,7 +9,7 @@ export interface IInput {
 }
 
 export const Input = (props: IInput): JSX.Element => {
-    const classes = "leading-normal px-4 py-2 mr-5 rounded min-w-1/2";
+    const classes = "text-black leading-normal px-4 py-2 mb-5 md:mb-0 md:mr-5 rounded min-w-350px";
 
     return (
             <>

@@ -1,36 +1,29 @@
-import React, { ChangeEvent } from 'react';
+import React, { useState } from 'react';
 import { Input } from '../Elements/Input';
 import { Button } from '../Elements/Button';
+import { useHistory } from 'react-router-dom';
 
-export class Homepage extends React.Component {
+export function Homepage() {
+    const [searchInput, setSearchInput] = useState('');
+    const history = useHistory();
 
-    input: string = '';
-
-    handleInputChange(text: ChangeEvent<HTMLInputElement>) {
-        this.input = text.currentTarget.value;
+    const handleSubmit = () => {
+        history.push(`/search/${searchInput}`)
+        console.log(searchInput);
     }
+    return (
+            <>
+                <h1 className="text-5xl text-white text-center">Bookrecs<span className="text-sm">.fyi</span>
+                </h1>
+                <div className="mt-10 flex flex-col md:flex-row md:justify-center md:items-center">
+                    <Input placeholder="Search for a book, series or author" changeHandler={
+                        (event) => setSearchInput(event.target.value)
+                    }
 
-    handleSubmit() {
-        console.log(this.input);
-    }
-
-    render() {
-        return (
-
-                <div className="min-h-screen bg-gradient-to-r from-blue-400 to-blue-500 py-6 flex flex-col justify-center items-center">
-                    <div className="container-xl mx-auto">
-                        <h1 className="text-5xl text-white text-center">Bookrecs<span className="text-sm">.fyi</span>
-                        </h1>
-                        <div className="mt-10">
-                            <Input placeholder="Search for a book, series or author" changeHandler={
-                                this.handleInputChange
-                            }
-
-                            />
-                            <Button title="Search" clickHandler={this.handleSubmit}/>
-                        </div>
-                    </div>
+                    />
+                    <Button title="Search" clickHandler={handleSubmit}/>
                 </div>
-        )
-    }
+            </>
+    )
+
 }
