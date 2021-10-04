@@ -4,10 +4,11 @@ import { getBooksBySeries, getPublishedRangeOfSeries } from './Utils';
 
 function App() {
     const {authors, books, genres, series} = booklist;
-
+    console.log(booklist);
 
     return (
             <div className="min-h-screen">
+
                 <ul>
                     {authors.map(author => (
                             <li>
@@ -16,8 +17,8 @@ function App() {
                                     {
                                         series.filter(serie => author.seriesIds?.includes(serie.id)).map(serie => (
                                                 <li>
-                                                    <span>{serie.name} ({getBooksBySeries(books, serie.id).length} books, published {getPublishedRangeOfSeries(books, serie.id)})
-                                                    </span>
+                 <span>{serie.name} ({getBooksBySeries(books, serie.id).length} books, published {getPublishedRangeOfSeries(books, serie.id)})
+                 </span>
                                                     <ul className="ml-5 mb-2">
                                                         {books.filter(book => serie.bookIds.includes(book.id)).map(book => (
                                                                         <li>
