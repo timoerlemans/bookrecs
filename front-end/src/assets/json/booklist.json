@@ -216,6 +216,32 @@
       ],
       "releaseYear": 1996,
       "partOfSeries": false
+    },
+    {
+      "id": "13",
+      "name": "American Gods",
+      "released": true,
+      "authorIds": ["2"],
+      "releaseYear": 2001,
+      "partOfSeries": true,
+      "seriesIds": ["4"],
+      "numberInSeries": {
+        "key": "4",
+        "value": 1
+      }
+    },
+    {
+      "id": "14",
+      "name": "Anansi Boys",
+      "released": true,
+      "authorIds": ["2"],
+      "releaseYear": 2005,
+      "partOfSeries": true,
+      "seriesIds": ["4"],
+      "numberInSeries": {
+        "key": "4",
+        "value": 2
+      }
     }
   ],
   "genres": [
@@ -283,6 +309,15 @@
         "1",
         "2"
       ],
+      "hasSubSeries": false,
+      "finished": true
+    },
+    {
+      "id": "4",
+      "bookIds": ["13", "14"],
+      "authorIds": ["2"],
+      "name": "American Gods",
+      "numberOfBooks": "2",
       "hasSubSeries": false,
       "finished": true
     }
