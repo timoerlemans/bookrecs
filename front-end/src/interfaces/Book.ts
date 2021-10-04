@@ -1,14 +1,14 @@
-import {KeyValue} from './KeyValue';
+import { KeyValue } from './KeyValue';
 
 export interface IBook {
     id: string;
     name: string;
-    authorId: string[];
+    authorIds: string[];
     partOfSeries: boolean;
-    seriesId?: string[];
+    seriesIds?: string[];
     numberInSeries?: KeyValue[];
-    releaseYear: number | null;
     released: boolean;
+    releaseYear?: number;
     genreIds?: string[];
     pages?: number;
     coverURL?: string;
