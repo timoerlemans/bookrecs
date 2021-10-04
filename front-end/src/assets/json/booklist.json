@@ -225,10 +225,10 @@
       "releaseYear": 2001,
       "partOfSeries": true,
       "seriesIds": ["4"],
-      "numberInSeries": {
+      "numberInSeries": [{
         "key": "4",
         "value": 1
-      }
+      }]
     },
     {
       "id": "14",
@@ -238,10 +238,10 @@
       "releaseYear": 2005,
       "partOfSeries": true,
       "seriesIds": ["4"],
-      "numberInSeries": {
+      "numberInSeries": [{
         "key": "4",
         "value": 2
-      }
+      }]
     }
   ],
   "genres": [
