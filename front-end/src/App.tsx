@@ -1,33 +1,61 @@
-import React from 'react';
-import { booklist } from './booklist';
-import { getBooksBySeries, getPublishedRangeOfSeries } from './Utils';
+import React, { useEffect, useState } from 'react';
+import { getBooksBySeries, getPublishedRangeOfSeries, getSeriesByAuthor, getStandaloneBooksByAuthor } from './Utils';
+import axios from 'axios';
+import { IBookList } from './interfaces/BookList';
 
 function App() {
-    const {authors, books, genres, series} = booklist;
-    console.log(booklist);
+    const [data, setData] = useState<IBookList>({
+        authors: [],
+        books: [],
+        genres: [],
+        series: []
+    });
+    const [loading, setLoading] = useState<boolean>(true);
+    useEffect(() => {
+        axios.get<IBookList>('https://raw.githubusercontent.com/timoerlemans/bookrecs/v1/front-end/src/assets/json/booklist.json')
+                // .then(response => response.json())
+                .then((response) => {
+                    setData(response.data);
+                }).finally(() => {
+            setLoading(false);
+        });
+    }, []);
+
+    const {authors, books, genres, series} = data;
+
+    if (loading) {
+        return (<div>Loading</div>);
+    }
 
     return (
             <div className="min-h-screen">
 
                 <ul>
                     {authors.map(author => (
-                            <li>
+                            <li key={`author-${author.id}`}>
                                 <span>{author.name}</span>
                                 <ul className="ml-5 mb-2">
                                     {
-                                        series.filter(serie => author.seriesIds?.includes(serie.id)).map(serie => (
-                                                <li>
-                 <span>{serie.name} ({getBooksBySeries(books, serie.id).length} books, published {getPublishedRangeOfSeries(books, serie.id)})
+                                        getSeriesByAuthor(series, author.id).map(idvSeries => (
+                                                <li key={`series-${idvSeries.id}`}>
+                 <span>{idvSeries.name} ({getBooksBySeries(books, idvSeries.id).length} books, published {getPublishedRangeOfSeries(books, idvSeries.id)})
                  </span>
                                                     <ul className="ml-5 mb-2">
-                                                        {books.filter(book => serie.bookIds.includes(book.id)).map(book => (
-                                                                        <li>
+                                                        {getBooksBySeries(books, idvSeries.id).map(book => (
+                                                                        <li key={`book-${book.id}`}>
                                                                             {book.name} [{book.releaseYear}]
-                                                                            ({book.numberInSeries?.find(({key}) => key === serie.id)?.value}/{serie.numberOfBooks})
+                                                                            ({book.numberInSeries?.find(({key}) => key === idvSeries.id)?.value}/{idvSeries.numberOfBooks})
                                                                         </li>
                                                                 )
                                                         )}
                                                     </ul>
+                                                </li>
+                                        ))
+                                    }
+                                    {
+                                        getStandaloneBooksByAuthor(books, author.id).map(book => (
+                                                <li key={`book-${book.id}`}>
+                                                    {book.name} [{book.releaseYear}]
                                                 </li>
                                         ))
                                     }

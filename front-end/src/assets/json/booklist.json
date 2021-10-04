@@ -3,22 +3,16 @@
     {
       "id": "1",
       "name": "Joe Abercrombie",
-      "bookIds": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9"
-      ],
       "seriesIds": [
         "1",
         "2",
         "3"
       ]
+    },
+    {
+      "id": "2",
+      "name": "Neil Gaiman",
+      "bookIds": ["10", "11", "12"]
     }
   ],
   "books": [
@@ -192,6 +186,36 @@
           "value": 3
         }
       ]
+    },
+    {
+      "id": "10",
+      "name": "Coraline",
+      "released": true,
+      "authorIds": [
+        "2"
+      ],
+      "releaseYear": 2002,
+      "partOfSeries": false
+    },
+    {
+      "id": "11",
+      "name": "The Graveyard Book",
+      "released": true,
+      "authorIds": [
+        "2"
+      ],
+      "releaseYear": 2008,
+      "partOfSeries": false
+    },
+    {
+      "id": "12",
+      "name": "Neverwhere",
+      "released": true,
+      "authorIds": [
+        "2"
+      ],
+      "releaseYear": 1996,
+      "partOfSeries": false
     }
   ],
   "genres": [

@@ -9,3 +9,5 @@ export const getPublishedBooksInSeries = (bookList: IBook[], seriesId: string): 
 export const sortBooksByReleaseYear = (bookList: IBook[]): IBook[] => [...getPublishedBooks(bookList)].sort((a, b) => (b.releaseYear as number) - (a.releaseYear as number));
 export const getReleaseYearOfBooks = (bookList: IBook[]): number[] => bookList.map(book => (book.releaseYear as number));
 export const getPublishedRangeOfSeries = (bookList: IBook[], seriesId: string): string => `${Math.min(...getReleaseYearOfBooks(getPublishedBooksInSeries(bookList, seriesId)))}-${Math.max(...getReleaseYearOfBooks(getPublishedBooksInSeries(bookList, seriesId)))}`
+export const getUnreleasedBooksByAuthor = (bookList: IBook[], authorId: string): IBook[] => getBooksByAuthor(bookList, authorId).filter(book => !book.released || (book.releaseYear && book.releaseYear < 1));
+export const getStandaloneBooksByAuthor = (bookList: IBook[], authorId: string): IBook[] => getBooksByAuthor(bookList, authorId).filter(book => !book.partOfSeries);
