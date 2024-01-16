@@ -19,7 +19,7 @@
     "graphql": "^15.5.1",
     "mongoose": "^5.13.20",
     "nanoid": "^3.1.31",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "^0.2.1",
     "type-graphql": "^1.1.1"
   },
   "devDependencies": {
