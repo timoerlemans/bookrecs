@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@typegoose/typegoose": "^12.8.0",
+    "@typegoose/typegoose": "^12.9.1",
     "apollo-server-express": "^3.13.0",
     "class-validator": "^0.14.1",
     "eslint": "^9.15.0",
