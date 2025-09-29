@@ -13,7 +13,7 @@
     "@typegoose/typegoose": "^12.15.0",
     "apollo-server-express": "^3.13.0",
     "class-validator": "^0.14.1",
-    "eslint": "^9.26.0",
+    "eslint": "^9.34.0",
     "express": "^5.1.0",
     "express-graphql": "^0.12.0",
     "graphql": "^16.11.0",
@@ -23,11 +23,11 @@
     "type-graphql": "^1.1.1"
   },
   "devDependencies": {
-    "@types/express": "^5.0.1",
+    "@types/express": "^5.0.3",
     "@types/graphql": "^14.5.0",
     "@types/mongoose": "^5.11.97",
-    "@types/node": "^22.13.17",
     "nodemon": "^3.1.10",
+    "@types/node": "^24.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
